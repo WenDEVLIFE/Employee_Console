@@ -79,14 +79,15 @@ public class EmployeManagement {
         }
 
         // Print table header
-        System.out.printf("%-10s %-15s %-15s %-12s %-40s %-15s %-20s %-20s %-20s %-20s %-10s %-25s %-20s %-15s %-15s %-15s %-15s %-15s %-10s%n",
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.printf("%-50s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s%n",
                 "ID", "Last Name", "First Name", "Birth Date", "Address", "Phone", "SSS", "TIN", "PhilHealth", "PagIbig",
                 "Status", "Position", "Supervisor", "Basic Salary", "Rice Subsidy", "Phone Allowance", "Clothing Allowance",
                 "Gross Salary", "Hourly Rate");
 
         // Print table rows
         for (EmployeeModel employee : employees) {
-            System.out.printf("%-10s %-15s %-15s %-12s %-40s %-15s %-20s %-20s %-20s %-20s %-10s %-25s %-20s %-15s %-15s %-15s %-15s %-15s %-10s%n",
+            System.out.printf("%-50s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s %-75s%n",
                     employee.getEmployeeId(), employee.getLastName(), employee.getFirstName(), employee.getBirthDay(),
                     employee.getAddress().replace("\"", ""), employee.getPhoneNumber(), employee.getSssNumber(), employee.getTinNumber(),
                     employee.getPhilHealthNumber(), employee.getPagIbigNumber(), employee.getStatus(), employee.getPosition(),
@@ -95,5 +96,7 @@ public class EmployeManagement {
                     employee.getClothingAllowance().replace("\"", ""), employee.getGrossSemiMonthlySalary().replace("\"", ""),
                     employee.getHourlyRate());
         }
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
     }
 }
