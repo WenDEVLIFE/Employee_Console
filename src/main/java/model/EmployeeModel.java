@@ -6,6 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/*
+ * EmployeeModel class represents an employee with various attributes.
+ * It provides methods to load employee data from a CSV file and access the employee's details.
+ */
 public class EmployeeModel {
 
     private String employeeId;
@@ -46,6 +51,7 @@ public class EmployeeModel {
 
     private String hourlyRate;
 
+    // Constructor to initialize the employee model
     public EmployeeModel(String employeeId, String lastName, String firstName, String birthDay, String address,
             String phoneNumber, String sssNumber, String tinNumber, String philHealthNumber, String pagIbigNumber,
             String status, String position, String intermidate_supervisor, String basicSalary, String rice_subsidy,
