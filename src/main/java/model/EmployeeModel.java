@@ -1,5 +1,11 @@
 package model;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class EmployeeModel {
 
     private String employeeId;
@@ -261,6 +267,44 @@ public class EmployeeModel {
                 + ", rice_subsidy=" + rice_subsidy + ", phoneAllowance=" + phoneAllowance + ", clothingAllowance="
                 + clothingAllowance + ", grossSemiMonthlySalary=" + grossSemiMonthlySalary
                 + ", hourlyRate=" + hourlyRate + "]";
+    }
+
+
+    // Method to load employee data from CSV
+    public static List<EmployeeModel> loadFromCSV(String filePath) {
+        List<EmployeeModel> employeeList = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            br.readLine(); // Skip the header line
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1); // Handle commas inside quotes
+                EmployeeModel employee = new EmployeeModel(
+                        values[0], // employeeId
+                        values[1], // lastName
+                        values[2], // firstName
+                        values[3], // birthDay
+                        values[4], // address
+                        values[5], // phoneNumber
+                        values[6], // sssNumber
+                        values[7], // tinNumber
+                        values[8], // philHealthNumber
+                        values[9], // pagIbigNumber
+                        values[10], // status
+                        values[11], // position
+                        values[12], // intermidate_supervisor
+                        values[13], // basicSalary
+                        values[14], // rice_subsidy
+                        values[15], // phoneAllowance
+                        values[16], // clothingAllowance
+                        values[17], // grossSemiMonthlySalary
+                        values[18]  // hourlyRate
+                );
+                employeeList.add(employee);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return employeeList;
     }
 
 
