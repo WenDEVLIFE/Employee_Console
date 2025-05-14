@@ -25,11 +25,18 @@ public class EmployeeCalculator extends SalaryCalculator   implements EmployeeOp
     // This method calculates the hours worked by an employee.
     @Override
     public void calculateHoursWorked(EmployeeModel employee) {
+        // Parse and retrieve the necessary components
         double hoursWorked = 40;
+
+        ///  get the hourly rate from the model
         double hourlyRate = parseDouble(employee.getHourlyRate());
+
+        // calculate the gross salary
         double grossSalary = hoursWorked * hourlyRate;
 
+        //  set the gross salary in the model
         employee.setGrossSemiMonthlySalary(String.valueOf(grossSalary));
+        // set the gross salary in the model
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         System.out.printf("%-15s %-20s %-20s %-15.2f%n",
                 employee.getEmployeeId(), employee.getLastName(), employee.getFirstName(), grossSalary);
